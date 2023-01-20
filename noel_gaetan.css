@@ -1,0 +1,58 @@
+body {
+    background-color: rgb(9, 9, 95);
+    color: white;
+    text-align: center;
+}
+.container {
+    display: inline-block;
+    width: 500px;
+    border: 1px solid rgb(9, 9, 95);
+    padding: 20px;
+    margin: 20px;
+}
+input[type="number"] {
+    width: 100px;
+}
+
+#currency-converter {
+    margin: 20px;
+    padding: 20px;
+}
+
+#currency-converter p {
+    margin: 10px 0;
+}
+
+#convert-button {
+    margin-top: 20px;
+}
+
+#currency-converter {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+#convert-button {
+    font-family: Verdana, sans-serif;
+    font-size: 16px;
+}
+
+#result {
+    font-family: Georgia, serif;
+    font-size: 18px;
+}
+
+#currency-converter {
+    background-color: rgb(9, 9, 95);
+    color: white;
+}
+
+#convert-button {
+    background-color: white;
+    color: rgb(0, 0, 0);
+}
+
+#result {
+    color: lightgreen;
+}
+

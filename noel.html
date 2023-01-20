@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="noel_gaetan.css">
+</head>
+<body>
+<div id="currency-converter">
+    <p>
+        <label for="amount">Enter an amount:</label>
+        <input type="number" id="amount" value="1">
+    </p>
+    <p>
+        <label for="from">From:</label>
+        <select id="from">
+            <option value="CHF">Schweizer Franken</option>
+            <option value="EUR">Euro</option>
+            <option value="USD">US dollar</option>
+            <option value="GBP">British pound</option>
+            <option value="YEN">Yen</option>
+            <option value="CNY">Renminbi Yuan</option>
+            <option value="BRL">Brasilianischer Real</option>
+            <option value="RUB">Russischer Rubel</option>
+            <option value="THB">Baht</option>
+            <option value="IDR">Indonesischer Rupiah</option>
+            <option value="ZAR">Südafrikanischer Rand</option>
+            <option value="CAD">Kanadischer Dollar</option>
+            <option value="HKD">Hongkong-Dollar</option>
+            <option value="INR">Indische Rupie</option>
+            <option value="AUD">Australischer Dollar</option>
+            <option value="SGD">Singapur-Dollar</option>
+            <option value="KRW">Südkoreanischer Won</option>
+            <option value="MXN">Mexikanischer Peso</option>
+            <option value="MYR">Malaysischer Ringgit</option>
+        </select>
+    </p>
+    <p>
+        <label for="to">To:</label>
+        <select id="to">
+            <option value="CHF">Schweizer Franken</option>
+            <option value="EUR">Euro</option>
+            <option value="USD">US dollar</option>
+            <option value="GBP">British pound</option>
+            <option value="YEN">Yen</option>
+            <option value="CNY">Renminbi Yuan</option>
+            <option value="BRL">Brasilianischer Real</option>
+            <option value="RUB">Russischer Rubel</option>
+            <option value="THB">Baht</option>
+            <option value="IDR">Indonesischer Rupiah</option>
+            <option value="ZAR">Südafrikanischer Rand</option>
+            <option value="CAD">Kanadischer Dollar</option>
+            <option value="HKD">Hongkong-Dollar</option>
+            <option value="INR">Indische Rupie</option>
+            <option value="AUD">Australischer Dollar</option>
+            <option value="SGD">Singapur-Dollar</option>
+            <option value="KRW">Südkoreanischer Won</option>
+            <option value="MXN">Mexikanischer Peso</option>
+            <option value="MYR">Malaysischer Ringgit</option>
+        </select>
+    </p>
+    <button id="convert-button">Convert</button>
+    <p>Result: <span id="result"></span></p>
+</div>
+
+<script>
+    const converter = document.getElementById("currency-converter");
+    const amountInput = document.getElementById("amount");
+    const fromInput = document.getElementById("from");
+    const toInput = document.getElementById("to");
+    const convertButton = document.getElementById("convert-button");
+    const result = document.getElementById("result");
+
+    const exchangeRates = {
+        CHF: 1, // 1 Swiss franc equals 1 Schweizer Franken
+        EUR: 1.01, // 1 Swiss franc equals 1.01 Euros
+        USD: 1.09, // 1 Swiss franc equals 1.09 US dollars
+        GBP: 0.88, // 1 Swiss franc equals 0.88 British pounds
+        YEN: 147.54, // 1 Swiss franc equals 147.54 Yen
+        CNY: 7.50, // 1 Swiss franc equals 7.50 Renminbi Yuan
+        BRL: 5.72, // 1 Swiss franc equals 5.72 Brasilianischer Real
+        RUB: 69.78, // 1 Swiss franc equals 69.78 Russischer Rubel
+        THB: 37.61, // 1 Swiss franc equals 37.61 Baht
+        IDR: 16782.52, // 1 Swiss franc equals 16782.52 Indonesischer Rupiah
+        ZAR: 18.93 // 1 Swiss franc equals 18.93 Südafrikanischer Rand
+        CAD: 1.04, // 1 Swiss franc equals 1.04 Kanadischer Dollar
+        HKD: 8.53, // 1 Swiss franc equals 8.53 Hongkong-Dollar
+        INR: 93.23, // 1 Swiss franc equals 93.23 Indische Rupie
+        AUD: 1.35, // 1 Swiss franc equals 1.35 Australischer Dollar
+        SGD: 1.43, // 1 Swiss franc equals 1.43 Singapur-Dollar
+        KRW: 1359.57, // 1 Swiss franc equals 1359.57 Südkoreanischer Won
+        MXN: 23.26, // 1 Swiss franc equals 23.26 Mexikanischer Peso
+        MYR: 4.72 // 1 Swiss franc equals 4.72 Malaysischer Ringgit
+
+    };
+
+    function convert(amount, from, to) {
+        const amountInCHF = amount / exchangeRates[from];
+        const result = amountInCHF * exchangeRates[to];
+        return result;
+    }
+
+    convertButton.addEventListener("click", () => {
+        const amount = amountInput.value;
+        const from = fromInput.value;
+        const to = toInput.value;
+
+        result.textContent = convert(amount, from, to);
+    });
+
+</script>
+</body>
+</html>
